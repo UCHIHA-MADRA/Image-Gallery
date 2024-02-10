@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scroll Images Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="Gallery-wrap">
+        <img src="images/back.png" id="backBtn">
+        <div class="Gallery">
+            <span><img src="images/image-1.png"></span>
+            <span><img src="images/image-2.png"></span>
+            <span><img src="images/image-3.png"></span>
+            <span><img src="images/image-4.png"></span>
+            <span><img src="images/image-5.png"></span>
+            <span><img src="images/image-6.png"></span>
+        </div>
+        <img src="images/next.png" id="nextBtn">
+    </div>
+
+    <script>
+        let ScrollContainer = document.querySelector(".Gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+
+        ScrollContainer.addEventListener("wheel",(evt) => {
+            evt.preventDefault();
+            ScrollContainer.scrollLeft += evt.deltaY;
+        });
+
+        nextBtn.addEventListener("click", () => {
+            ScrollContainer.scrollLeft += 900;
+        });
+
+        backBtn.addEventListener("click", () => {
+            ScrollContainer.scrollLeft -= 900;
+        });
+    </script>
+</body>
+</html>
